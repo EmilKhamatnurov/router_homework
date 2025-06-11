@@ -1,0 +1,12 @@
+@import './reset.css';
+
+body,
+html {
+	background-color: rgb(23, 23, 23);
+	color: white;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
