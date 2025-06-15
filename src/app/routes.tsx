@@ -1,10 +1,12 @@
 import { FunctionComponent } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Categories from '../pages/Categories';
-import Info from '../pages/Info';
+import Navbar from '../components/Navbar/Navbar';
 import Main from '../pages/Main';
-import { ROUTES } from './config';
+import Charapters from '../pages/Charapters';
+import Episodes from '../pages/Episodes';
+import NotFound from '../pages/NotFound';
+import Locations from '../pages/Locations';
+import {ROUTES} from './config'
 
 interface AppRoutesProps {}
 
@@ -14,8 +16,10 @@ const AppRoutes: FunctionComponent<AppRoutesProps> = () => {
 			<Navbar />
 			<Routes>
 				<Route path={ROUTES.MAIN} element={<Main />} />
-				<Route path={ROUTES.INFO} element={<Info />} />
-				<Route path={ROUTES.CATEGORIES} element={<Categories />} />
+				<Route path={ROUTES.CHARAPTERS} element={<Charapters />} />
+				<Route path={ROUTES.EPISODES} element={<Episodes />} />
+				<Route path={ROUTES.LOCATIONS} element={<Locations />} />
+				<Route path={"/*"} element={<NotFound />} />
 			</Routes>
 		</>
 	);

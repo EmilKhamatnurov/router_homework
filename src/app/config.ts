@@ -1,5 +1,6 @@
 export const ROUTES = {
-	MAIN: '/',
-	INFO: '/info',
-	CATEGORIES: '/categories',
+	MAIN: '/main',
+	CHARAPTERS: '/charapters',
+	EPISODES: '/episodes',
+	LOCATIONS: '/locations',
 };
