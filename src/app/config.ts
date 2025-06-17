@@ -1,6 +1,7 @@
 export const ROUTES = {
 	MAIN: '/main',
-	CHARAPTERS: '/charapters',
+	CHAPTERS: '/chapters',
 	EPISODES: '/episodes',
 	LOCATIONS: '/locations',
+	NOT_FOUND: '*',
 };

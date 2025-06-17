@@ -1,3 +1,11 @@
 .mainPage {
-    background: red;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.welcomeText {
+	font-size: 32px;
 }

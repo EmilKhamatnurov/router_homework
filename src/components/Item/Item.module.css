@@ -1,0 +1,19 @@
+.item {
+	background-color: rgb(25, 25, 25);
+	max-width: 300px;
+	width: 100%;
+	padding: 15px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	justify-self: start;
+}
+
+.item:hover {
+	background-color: rgb(45, 45, 45);
+}
+
+.itemName {
+	text-align: center;
+	display: block;
+	font-weight: 300;
+}

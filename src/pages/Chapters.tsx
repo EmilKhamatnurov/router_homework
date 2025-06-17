@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import locations from '../assets/location.json';
+import { Outlet, useLocation, useNavigate } from 'react-router';
+import characters from '../assets/characters.json';
 import GridArea from '../components/GridArea/GridArea';
 import Item from '../components/Item/Item';
 
-interface LocationsProps {}
+interface ChaptersProps {}
 
-const Locations: FunctionComponent<LocationsProps> = () => {
+const Chapters: FunctionComponent<ChaptersProps> = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -16,11 +16,12 @@ const Locations: FunctionComponent<LocationsProps> = () => {
 
 	return (
 		<GridArea>
-			{locations?.map(item => (
+			{characters?.map(item => (
 				<Item item={item} onClick={handleItemClick} />
 			))}
+			<Outlet />
 		</GridArea>
 	);
 };
 
-export default Locations;
+export default Chapters;

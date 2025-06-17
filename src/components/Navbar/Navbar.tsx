@@ -1,28 +1,55 @@
 import { FunctionComponent } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { ROUTES } from '../../app/config';
 import styles from './Navbar.module.css';
-import {ROUTES} from '../../app/config';
 interface NavbarProps {}
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
-
 	const location = useLocation();
-	
+
 	return (
 		<>
 			<nav className={styles['navigation']}>
 				<ul className={styles['navigationLinks']}>
 					<li className={styles['navigationLink']}>
-						<Link to={ROUTES.MAIN}>Main</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? { color: '#87f11c' } : { color: 'white' }
+							}
+							to={ROUTES.MAIN}
+						>
+							Main
+						</NavLink>
 					</li>
 					<li className={styles['navigationLink']}>
-						<Link to={ROUTES.CHARAPTERS}>Charapters</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? { color: '#87f11c' } : { color: 'white' }
+							}
+							to={ROUTES.CHAPTERS}
+						>
+							Chapters
+						</NavLink>
 					</li>
 					<li className={styles['navigationLink']}>
-						<Link to={ROUTES.EPISODES}>Episodes</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? { color: '#87f11c' } : { color: 'white' }
+							}
+							to={ROUTES.EPISODES}
+						>
+							Episodes
+						</NavLink>
 					</li>
-					<li className={styles['navigationLink']}> 
-						<Link to={ROUTES.LOCATIONS}>Locations</Link>
+					<li className={styles['navigationLink']}>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? { color: '#87f11c' } : { color: 'white' }
+							}
+							to={ROUTES.LOCATIONS}
+						>
+							Locations
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

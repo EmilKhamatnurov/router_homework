@@ -1,0 +1,10 @@
+.backLabel {
+	text-align: center;
+	font-size: 28px;
+	user-select: none;
+}
+
+.backBtn {
+	color: #87f11c;
+	cursor: pointer;
+}

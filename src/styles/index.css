@@ -1,9 +1,14 @@
-/* @import './reset.css'; */
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body,
 html {
 	background-color: rgb(23, 23, 23);
 	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 }
 
 a {

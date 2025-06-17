@@ -1,12 +1,13 @@
 import { FunctionComponent } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import ItemInfo from '../components/ItemInfo/ItemInfo';
 import Navbar from '../components/Navbar/Navbar';
-import Main from '../pages/Main';
-import Charapters from '../pages/Charapters';
+import Chapters from '../pages/Chapters';
 import Episodes from '../pages/Episodes';
-import NotFound from '../pages/NotFound';
 import Locations from '../pages/Locations';
-import {ROUTES} from './config'
+import Main from '../pages/Main';
+import NotFound from '../pages/NotFound';
+import { ROUTES } from './config';
 
 interface AppRoutesProps {}
 
@@ -16,10 +17,16 @@ const AppRoutes: FunctionComponent<AppRoutesProps> = () => {
 			<Navbar />
 			<Routes>
 				<Route path={ROUTES.MAIN} element={<Main />} />
-				<Route path={ROUTES.CHARAPTERS} element={<Charapters />} />
+				<Route path={ROUTES.CHAPTERS} element={<Chapters />} />
+				<Route path={ROUTES.CHAPTERS + '/:id'} element={<ItemInfo />} />
+
 				<Route path={ROUTES.EPISODES} element={<Episodes />} />
+				<Route path={ROUTES.EPISODES + '/:id'} element={<ItemInfo />} />
+
 				<Route path={ROUTES.LOCATIONS} element={<Locations />} />
-				<Route path={"/*"} element={<NotFound />} />
+				<Route path={ROUTES.LOCATIONS + '/:id'} element={<ItemInfo />} />
+
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</>
 	);
