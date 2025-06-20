@@ -1,10 +1,23 @@
+.pageWrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url(../../assets/images/IMG_1050.jpeg);
+}
+
 .backLabel {
 	text-align: center;
-	font-size: 28px;
+	font-size: 48px;
 	user-select: none;
+	background-color: rgba(0, 0, 0, 0.639);
+	padding: 10px;
 }
 
 .backBtn {
 	color: #87f11c;
 	cursor: pointer;
+	display: block;
+	margin-top: 20px;
 }

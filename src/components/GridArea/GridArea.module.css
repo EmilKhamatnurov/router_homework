@@ -1,9 +1,13 @@
 .gridArea {
+	padding: 10px;
 	display: flex;
 	align-items: start;
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 10px;
-	width: 95%;
+	width: 100%;
+	height: 100%;
 	margin: 0 auto;
+	background: url(../../assets/images/IMG_1051.jpeg) center center / cover
+		no-repeat;
 }

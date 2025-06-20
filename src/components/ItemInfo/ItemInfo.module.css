@@ -4,6 +4,8 @@
 	text-decoration: underline;
 	cursor: pointer;
 	user-select: none;
+	width: fit-content;
+	color: #87f11c;
 }
 
 .informationCard {

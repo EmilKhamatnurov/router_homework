@@ -13,11 +13,13 @@ const NotFound: FunctionComponent<NotFoundProps> = () => {
 	};
 
 	return (
-		<div className={styles['backLabel']}>
-			Такая страница не найдена.
-			<span className={styles['backBtn']} onClick={handleBackLinkClick}>
-				Прыгнуть в портал
-			</span>
+		<div className={styles['pageWrapper']}>
+			<div className={styles['backLabel']}>
+				Такая страница не найдена.
+				<span className={styles['backBtn']} onClick={handleBackLinkClick}>
+					Прыгнуть в портал
+				</span>
+			</div>
 		</div>
 	);
 };
