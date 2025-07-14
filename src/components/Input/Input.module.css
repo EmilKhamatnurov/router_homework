@@ -1,0 +1,54 @@
+.input {
+}
+
+.inputLabel {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: start;
+	gap: 3px;
+	font-size: 20px;
+	user-select: none;
+	width: 100%;
+}
+
+.inputLabelWrapper {
+	display: flex;
+}
+
+.inputDescription {
+	font-size: 28px;
+	color: rgb(131, 131, 131);
+}
+
+.inputField {
+	width: 100%;
+	padding: 7px 14px;
+	font-size: 28px;
+	color: rgb(15, 15, 15);
+	border: 1px solid #c3c3c3;
+	border-radius: 5px;
+	color: white;
+}
+
+.inputError {
+	color: red;
+}
+
+.inputAsterisk {
+	color: red;
+}
+
+.inputWrapper {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.inputIcon {
+	position: absolute;
+	left: 5px;
+	color: #666;
+	top: 6px;
+}

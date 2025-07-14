@@ -1,12 +1,11 @@
 import { FunctionComponent } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { ROUTES } from '../../app/config';
+import { LoginStatus } from '../LoginStatus/LoginStatus';
 import styles from './Navbar.module.css';
 interface NavbarProps {}
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
-	const location = useLocation();
-
 	return (
 		<>
 			<nav className={styles['navigation']}>
@@ -51,8 +50,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 							Locations
 						</NavLink>
 					</li>
+					<li>
+						<LoginStatus />
+					</li>
 				</ul>
 			</nav>
+
+			<Outlet />
 		</>
 	);
 };
