@@ -1,4 +1,5 @@
 .gridArea {
+	overflow: scroll;
 	padding: 10px;
 	display: flex;
 	align-items: start;
@@ -10,4 +11,8 @@
 	margin: 0 auto;
 	background: url(../../assets/images/IMG_1051.jpeg) center center / cover
 		no-repeat;
+}
+
+.gridArea::-webkit-scrollbar {
+	width: 0;
 }

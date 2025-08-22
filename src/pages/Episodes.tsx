@@ -1,23 +1,56 @@
-import { FunctionComponent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import episodes from '../assets/episode.json';
+import { FunctionComponent, useCallback, useRef, useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import GridArea from '../components/GridArea/GridArea';
 import Item from '../components/Item/Item';
-interface EpisodesProps {}
+import { useFetchData } from '../hooks/useFetchData';
+interface EpisodesProps { }
 
 const Episodes: FunctionComponent<EpisodesProps> = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
+	const [pageNumber, setPageNumber] = useState(1);
+	const [episodes, isLoading, hasMore, error] = useFetchData('https://rickandmortyapi.com/api/episode', pageNumber);
 
-	const handleItemClick = (item: { id: number; name: string }) => {
-		navigate(`${location.pathname}/${item.id}`, { state: item });
+	const observer = useRef(null);
+
+	const handleItemClick = (item: { id: number; name: string; }) => {
+		navigate(`${location.pathname}/${item.id}`, { state: { item: item, filteredFields: ['image', 'url', 'episode'] }, });
 	};
+
+	const lastNodeRef = useCallback(
+		node => {
+			if (isLoading) return; // Если идет загрузка, то не делаем ничего
+			if (observer.current) {
+				observer.current.disconnect(); // Отключаем обсервер
+			}
+
+			observer.current = new IntersectionObserver(entries => {
+				if (entries[0].isIntersecting && hasMore) {
+					console.log('### VISIBLE:', entries);
+					setPageNumber(prev => prev + 1);
+				}
+			});
+
+			if (node) {
+				observer.current.observe(node);
+			}
+		},
+		[isLoading, hasMore]
+	);
 
 	return (
 		<GridArea>
-			{episodes?.map(item => (
-				<Item item={item} onClick={handleItemClick} />
-			))}
+			{episodes?.map((item, index) => {
+				if (episodes.length === index + 1) {
+					return <div key={index} ref={lastNodeRef}>
+						<Item item={item} onClick={handleItemClick} />
+					</div>;
+				}
+				else {
+					return <Item item={item} onClick={handleItemClick} />;
+				}
+			})}
+			<Outlet />
 		</GridArea>
 	);
 };

@@ -2,8 +2,8 @@ import { FunctionComponent } from 'react';
 import styles from './Item.module.css';
 
 interface ItemProps {
-	item: { id: number; name: string };
-	onClick: (item: { id: number; name: string }) => void;
+	item: { id: number; name: string; };
+	onClick: (item: { id: number; name: string; }) => void;
 }
 
 const Item: FunctionComponent<ItemProps> = props => {

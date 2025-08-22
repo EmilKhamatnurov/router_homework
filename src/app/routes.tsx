@@ -1,17 +1,28 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import ItemInfo from '../components/ItemInfo/ItemInfo';
 import Navbar from '../components/Navbar/Navbar';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
-import Chapters from '../pages/Chapters';
-import Episodes from '../pages/Episodes';
-import Locations from '../pages/Locations';
 import Login from '../pages/Login';
-import Main from '../pages/Main';
 import NotFound from '../pages/NotFound';
 import { ROUTES } from './config';
 
-interface AppRoutesProps {}
+interface AppRoutesProps { }
+
+const Main = lazy(() => import('../pages/Main.tsx'));
+const Chapters = lazy(() => import('../pages/Chapters.tsx'));
+const Episodes = lazy(() => import('../pages/Episodes.tsx'));
+const Locations = lazy(() => import('../pages/Locations.tsx'));
+const ItemInfo = lazy(() => import('../components//ItemInfo/ItemInfo.tsx'));
+
+const RouteWrapper = ({ children }) => {
+	return (
+		<PrivateRoute>
+			<Suspense fallback={<div>Loading...</div>}>
+				{children}
+			</Suspense>
+		</PrivateRoute>
+	);
+};
 
 const AppRoutes: FunctionComponent<AppRoutesProps> = () => {
 	return (
@@ -27,59 +38,59 @@ const AppRoutes: FunctionComponent<AppRoutesProps> = () => {
 					<Route
 						path={ROUTES.MAIN}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<Main />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 					<Route
 						path={ROUTES.CHAPTERS}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<Chapters />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 					<Route
 						path={ROUTES.CHAPTERS + '/:id'}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<ItemInfo />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 
 					<Route
 						path={ROUTES.EPISODES}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<Episodes />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 					<Route
 						path={ROUTES.EPISODES + '/:id'}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<ItemInfo />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 
 					<Route
 						path={ROUTES.LOCATIONS}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<Locations />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 					<Route
 						path={ROUTES.LOCATIONS + '/:id'}
 						element={
-							<PrivateRoute>
+							<RouteWrapper>
 								<ItemInfo />
-							</PrivateRoute>
+							</RouteWrapper>
 						}
 					/>
 
